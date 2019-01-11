@@ -1,6 +1,3 @@
-local load_time_start = os.clock()
-local modname = minetest.get_current_modname()
-
 local camera
 minetest.register_on_connect(function()
 	minetest.after(0, function()
@@ -35,12 +32,3 @@ minetest.register_chatcommand("wit", {
 		return true, "Got point "..param:upper().."."
     end,
 })
-
-
-local time = math.floor(tonumber(os.clock()-load_time_start)*100+0.5)/100
-local msg = "["..modname.."] loaded after ca. "..time
-if time > 0.05 then
-	print(msg)
-else
-	minetest.log("info", msg)
-end
